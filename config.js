@@ -1,2 +1,3 @@
-const SB_URL = 'https://nbeawlxkqjjcpcbqjyox.supabase.co';
-const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5iZWF3bHhrcWpqY3BjYnFqeW94Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA4Mjg0NDcsImV4cCI6MjA4NjQwNDQ0N30.B5AByTxTHOmgMhyxxpB-bixLwoqdaazQNrbYnMfHCu4';
+const SB_URL = '';
+
+const SB_KEY = '';
