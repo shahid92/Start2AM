@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>START 2AM | Capture and Share Ideas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+    <div id="app">
+        <aside class="sidebar">
+            <a href="/" class="brand"><img src="2am-logo.svg" alt="START 2AM" class="logo-img"></a>
+            <nav>
+                <button class="nav-btn active" data-view="all">All Ideas</button>
+                <button class="nav-btn" data-view="shared">Shared</button>
+                <button class="nav-btn" data-view="archived">Archive</button>
+                <button class="nav-btn" id="notes-toggle-btn">Notes</button>
+            </nav>
+            <div id="auth-section">
+                <p id="user-display">Guest</p>
+            </div>
+        </aside>
+
+        <main class="content">
+            <header class="top-nav">
+                <input type="text" id="search-bar" placeholder="Search ideas, tags, files...">
+                <button id="create-btn" class="primary-btn">New Idea</button>
+            </header>
+            <div id="workspace-grid" class="grid-layout">
+            </div>
+        </main>
+    </div>
+
+    <div id="auth-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="modal-title">Welcome to 2AM</h2>
+            <form id="auth-form">
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit" id="submit-btn" class="primary-btn">Sign In</button>
+            </form>
+            <p class="toggle-text">
+                Need an account? <span id="toggle-auth">Sign Up</span>
+            </p>
+        </div>
+    </div>
+
+<div id="idea-modal" class="modal hidden">
+    <div class="modal-content">
+        <h2 id="idea-modal-title">Capture Idea</h2>
+        <form id="idea-form">
+            <input type="hidden" id="edit-idea-id">
+            <textarea id="idea-content" placeholder="What's on your mind?" required></textarea>
+            <input type="text" id="idea-tags" placeholder="Tags (comma separated)">
+            <select id="idea-category">
+                <option value="General">General</option>
+                <option value="Project">Project</option>
+                <option value="Personal">Personal</option>
+                <option value="Work">Work</option>
+            </select>
+            <input type="file" id="idea-file" accept="image/*,video/*,.pdf,.docx,.txt">
+            <div id="upload-status"></div>
+            <div class="modal-actions">
+                <button type="button" id="close-idea-btn" class="nav-btn">Cancel</button>
+                <button type="submit" class="primary-btn">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+    <div id="share-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Share Idea</h2>
+            <form id="share-form">
+                <input type="hidden" id="share-idea-id">
+                <input type="email" id="share-email" placeholder="Collaborator's Email" required>
+                <select id="share-role">
+                    <option value="editor">Editor</option>
+                    <option value="viewer">Viewer</option>
+                </select>
+                <div class="modal-actions">
+                    <button type="button" id="close-share-btn" class="nav-btn">Cancel</button>
+                    <button type="submit" class="primary-btn">Grant Access</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="notes-drawer" class="drawer hidden-drawer">
+    <div class="drawer-header">
+        <h3>My Notes</h3>
+        <button id="close-notes-btn">&times;</button>
+    </div>
+    <div class="drawer-body">
+        <form id="note-form">
+            <input type="hidden" id="edit-note-id">
+            <input type="text" id="note-title" placeholder="Note Title" required>
+            <textarea id="note-content" placeholder="Write something..." required></textarea>
+            <button type="submit" class="primary-btn" id="save-note-btn">Save Note</button>
+        </form>
+        <hr class="divider">
+        <div id="notes-list"></div>
+    </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+    <script src="notes.js"></script>
+</body>
+</html>
